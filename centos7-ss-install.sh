@@ -13,7 +13,7 @@ fi
 
 # Version
 LIBSODIUM_VER=1.0.17
-MBEDTLS_VER=2.16.0
+MBEDTLS_VER=2.16.8
 ss_file=0
 v2_file=0
 get_latest_ver(){
@@ -83,10 +83,11 @@ install_mbedtls(){
     if [ -f /usr/lib/libmbedtls.a ];then
         echo -e "\033[1;32mMbedTLS already installed, skip.\033[0m"
     else
-        if [ ! -f mbedtls-$MBEDTLS_VER-gpl.tgz ];then
-            wget https://tls.mbed.org/download/mbedtls-$MBEDTLS_VER-gpl.tgz
+        if [ ! -f mbedtls-$MBEDTLS_VER.tar.gz ];then
+            #wget https://tls.mbed.org/download/mbedtls-$MBEDTLS_VER-gpl.tgz
+            wget https://codeload.github.com/Mbed-TLS/mbedtls/tar.gz/refs/tags/v2.16.8
         fi
-        tar xf mbedtls-$MBEDTLS_VER-gpl.tgz
+        tar xf mbedtls-$MBEDTLS_VER.tar.gz
         pushd mbedtls-$MBEDTLS_VER
         make SHARED=1 CFLAGS=-fPIC
         make DESTDIR=/usr install
