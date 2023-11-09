@@ -83,7 +83,7 @@ install_mbedtls(){
     if [ -f /usr/lib/libmbedtls.a ];then
         echo -e "\033[1;32mMbedTLS already installed, skip.\033[0m"
     else
-        if [ ! -f mbedtls-$MBEDTLS_VER.tar.gz ];then
+        if [ ! -f v$MBEDTLS_VER.tar.gz ];then
             wget https://github.com/Mbed-TLS/mbedtls/archive/refs/tags/v2.16.8.tar.gz
             #wget https://tls.mbed.org/download/mbedtls-$MBEDTLS_VER-gpl.tgz
         fi
