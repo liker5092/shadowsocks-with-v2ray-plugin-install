@@ -84,11 +84,11 @@ install_mbedtls(){
         echo -e "\033[1;32mMbedTLS already installed, skip.\033[0m"
     else
         if [ ! -f mbedtls-$MBEDTLS_VER.tar.gz ];then
-            wget https://github.com/Mbed-TLS/mbedtls/archive/refs/tags/v2.16.8.tar.gz -o mbedtls-$MBEDTLS_VER.tar.gz
+            wget https://github.com/Mbed-TLS/mbedtls/archive/refs/tags/v2.16.8.tar.gz
             #wget https://tls.mbed.org/download/mbedtls-$MBEDTLS_VER-gpl.tgz
         fi
         #tar xf mbedtls-$MBEDTLS_VER-gpl.tgz
-        tar -zxvf mbedtls-$MBEDTLS_VER.tar.gz
+        tar -zxvf v$MBEDTLS_VER.tar.gz
         pushd mbedtls-$MBEDTLS_VER
         make SHARED=1 CFLAGS=-fPIC
         make DESTDIR=/usr install
